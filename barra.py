@@ -6,11 +6,12 @@ from constantes import g_, ρ_acero, E_acero
 class Barra(object):
 
     """Constructor para una barra"""
-    def __init__(self, ni, nj, seccion):
+    def __init__(self, ni, nj, seccion, color=np.random.rand(3)):
         super(Barra, self).__init__()
         self.ni = ni
         self.nj = nj
         self.seccion = seccion
+        self.color = color
 
 
     def obtener_conectividad(self):
@@ -22,8 +23,14 @@ class Barra(object):
         xj : Arreglo numpy de dimenson (3,) con coordenadas del nodo j
         """
         
-        """Implementar"""	
-        
+        ni = self.ni
+        nj = self.nj
+
+        xi = reticulado.xyz[ni,:]
+        xj = reticulado.xyz[nj,:]
+
+        print(f"Barra {ni} a {nj} xi = {xi} xj = {xj}")
+
         return 0
 
     def calcular_peso(self, reticulado):
