@@ -54,8 +54,12 @@ def graficar_nodos(ret, fig, opciones):
     xy = ret.obtener_nodos()[:,0:2]
 
     if opciones["usar_posicion_deformada"]: 
+        if opciones["datos_desplazamientos_nodales"] is None:
+            u = ret.u
+        else:
+            u = opciones["datos_desplazamientos_nodales"]
         factor = opciones ["factor_amplificacion_deformada"]
-        uv = ret.u.reshape((-1,int(len(ret.u)/ret.Nnodos)))
+        uv = u.reshape((-1,int(len(u)/ret.Nnodos)))
         xy += factor*uv[:,0:2]
 
     plt.plot(xy[:,0], xy[:,1], 
@@ -78,8 +82,12 @@ def graficar_barras(ret, fig, opciones):
     xy = ret.obtener_nodos()[:,0:2]
 
     if opciones["usar_posicion_deformada"]: 
+        if opciones["datos_desplazamientos_nodales"] is None:
+            u = ret.u
+        else:
+            u = opciones["datos_desplazamientos_nodales"]
         factor = opciones ["factor_amplificacion_deformada"]
-        uv = ret.u.reshape((-1,int(len(ret.u)/ret.Nnodos)))
+        uv = u.reshape((-1,int(len(u)/ret.Nnodos)))
         xy += factor*uv[:,0:2]
 
     if opciones["color_barras_por_dato"]:

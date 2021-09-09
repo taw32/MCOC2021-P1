@@ -99,7 +99,7 @@ def graficar_barras(ret, fig, opciones):
             u = opciones["datos_desplazamientos_nodales"]
         factor = opciones ["factor_amplificacion_deformada"]
         uvw = u.reshape((-1,3))
-        xyz = xyz +  factor*uvw
+        xyz +=  factor*uvw
 
     if opciones["color_barras_por_dato"]:
         f = opciones["dato"]

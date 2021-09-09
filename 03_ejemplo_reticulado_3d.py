@@ -46,6 +46,10 @@ ret.agregar_barra(Barra(4, 7, circular_200_8)) #12
 ret.agregar_barra(Barra(0, 5, circular_200_4)) #13
 ret.agregar_barra(Barra(1, 6, circular_200_4)) #14
 ret.agregar_barra(Barra(2, 7, circular_200_4)) #15
+ret.agregar_barra(Barra(0, 6, circular_200_4)) #15
+ret.agregar_barra(Barra(1, 5, circular_200_4)) #15
+ret.agregar_barra(Barra(6, 2, circular_200_4)) #15
+ret.agregar_barra(Barra(1, 7, circular_200_4)) #15
 
 
 
