@@ -45,7 +45,16 @@ class Barra(object):
         peso = masa*gravedad
         
         return peso
-
+    
+    def calcular_area(self, reticulado):
+        """Devuelve el area de la barra.""" 
+        
+        seccion = self.seccion
+        area = seccion.area
+        
+        
+        return area
+    
     def obtener_rigidez(self, ret):
         
         """Implementar"""	
