@@ -49,9 +49,7 @@ class Barra(object):
     def calcular_area(self, reticulado):
         """Devuelve el area de la barra.""" 
         
-        seccion = self.seccion
-        area = seccion.area
-        
+        area = self.seccion.area()
         
         return area
     
