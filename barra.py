@@ -31,7 +31,7 @@ class Barra(object):
 
         #print(f"Barra {ni} a {nj} xi = {xi} xj = {xj}") ??
 
-        largo = np.sqrt(xi**2 + xj**2)
+        largo = np.linalg.norm(xi-xj)
  
         return largo
 
