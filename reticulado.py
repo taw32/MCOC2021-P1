@@ -3,24 +3,24 @@ from scipy.linalg import solve
 
 class Reticulado(object):
     """Define un reticulado"""
-    _NNodosInit_ = 100
+    __NNodosInit__ = 100
 
     #constructor
-    def _init_(self):
-        super(Reticulado, self)._init_()
+    def __init__(self):
+        super(Reticulado, self).__init__()
         
-        print("Constructor de Reticulado")
+        #print("Constructor de Reticulado")
         
-        self.xyz = np.zeros((Reticulado._NNodosInit_,3), dtype=np.double)
+        self.xyz = np.zeros((Reticulado.__NNodosInit__,3), dtype=np.double)
         self.Nnodos = 0
         self.barras = []
         self.cargas = {}
         self.restricciones = {}
     
     def agregar_nodo(self, x, y, z=0):
-        print(f"Quiero agregar un nodo en ({x} {y} {z})")
+        #print(f"Quiero agregar un nodo en ({x} {y} {z})")
         numero_de_nodo_actual = self.Nnodos
-        if self.Nnodos+1 > Reticulado._NNodosInit_:
+        if self.Nnodos+1 > Reticulado.__NNodosInit__:
             self.xyz.resize((self.Nnodos+1,3))
             self.xyz[self.Nnodos,:] = [x, y, z]
             self.Nnodos += 1
@@ -43,7 +43,7 @@ class Reticulado(object):
         peso = 0.
         for b in self.barras:
             peso += b.calcular_peso(self)
-            return peso	
+            return peso 
         
         return 0
 
@@ -59,20 +59,22 @@ class Reticulado(object):
 
     def agregar_restriccion(self, nodo, gdl, valor=0.0):
         
-        """Implementar"""	
+        #if no_esxiste_restriccion_para _el_nodo: #?????
+        #self.restricciones[nodo]
+        #self.restricciones[nodo].append(gdl,valor)  
         
         return 0
 
     def agregar_fuerza(self, nodo, gdl, valor):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
 
     def ensamblar_sistema(self):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
@@ -80,33 +82,34 @@ class Reticulado(object):
 
     def resolver_sistema(self):
         
-        """Implementar"""	
+        #for e in self.barras:
+
         
         return 0
 
     def obtener_desplazamiento_nodal(self, n):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
 
     def obtener_fuerzas(self):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
 
     def obtener_factores_de_utilizacion(self, f):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
     def rediseñar(self, Fu, ϕ=0.9):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
@@ -114,7 +117,7 @@ class Reticulado(object):
 
     def chequear_diseño(self, Fu, ϕ=0.9):
         
-        """Implementar"""	
+        """Implementar"""   
         
         return 0
 
@@ -133,5 +136,3 @@ class Reticulado(object):
         s+="\n"
         
         return s
-        
-    

@@ -55,21 +55,25 @@ class Barra(object):
     
     def obtener_rigidez(self, ret):
         
-        """Implementar"""	
+        cosθx = Lx/L
+        cosθy = Ly/L
+        cosθz = Lz/L 
         
-        return 0
+        ke =  self.seccion.area()*E_acero/L * T.T @ T
+
+        return ke
 
     def obtener_vector_de_cargas(self, ret):
         
         """Implementar"""	
         
-        return 0
+        return -W/2*array([0,1,0,1])
 
     def obtener_fuerza(self, ret):
         
-        """Implementar"""	
+        se = A*E_acero/L*T*u_e
         
-        return 0
+        return se
 
     def chequear_diseño(self, Fu, ret, ϕ=0.9):
         
