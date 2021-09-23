@@ -82,9 +82,28 @@ class Reticulado(object):
 
     def resolver_sistema(self):
         
-        #for e in self.barras:
-
+        gdl_libres = [x for x in range(self.Nnodos*3)]
+        gdl_fijos = []
         
+        for node in self.restricciones:
+            for R in self.restricciones[node]:
+                gdl = R[0]
+                gdl_fijos.append(node*3+gdl)
+                
+        gdl_libres = list(set(gdl_libres)-set(gdl_fijos))
+        
+        #for e in self.barras:
+        self.Kcc=self.K[np.ix_(gdl_fijos,gdl_fijos)]
+        self.Kff=self.K[np.ix_(gdl_libres,gdl_libres)]
+        self.Kfc=self.K[np.ix_(gdl_libres,gdl_fijos)]
+        self.Kcf=self.K[np.ix_(gdl_fijos,gdl_libres)]
+        self.u=np.zeros(self.Nnodos*3)
+        self.uf=self.u[gdl_libres]
+        self.uc=self.u[gdl_fijos]
+        self.uc=solve(self.Kff,self.Ff)
+        self.Ff=self.f[gdl_libres]-self.Kfc @ self.uc
+        self.Fc=self.f[gdl_fijos]-self.Kcf @ self.uf
+        self.R= self.Kcc @ self.uc -self.Fc
         return 0
 
     def obtener_desplazamiento_nodal(self, n):
